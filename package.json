@@ -9,7 +9,11 @@
     "tests:show:reports-html": "npx playwright show-report",
 
     "tests:Tag:SANITY": "npx playwright test --grep=@sanity",
-    "tests:Tag:REGRESSION": "npx playwright test --grep=@regression"
+    "tests:Tag:REGRESSION": "npx playwright test --grep=@regression",
+
+    "tests:DEV": "BASE_URL=https://www.dev-reqres.in/api/ npx playwright test",
+    "tests:PRE-PROD": "BASE_URL=https://www.pre-prod-reqres.in/api/ npx playwright test",
+    "tests:PROD": "BASE_URL=https://reqres.in/api/ npx playwright test"
 
   },
   "keywords": [],
