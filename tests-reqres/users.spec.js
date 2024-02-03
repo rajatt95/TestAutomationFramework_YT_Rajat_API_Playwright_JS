@@ -2,6 +2,7 @@ import { test, expect} from '@playwright/test'
 import EndpointUtils from '../utils/EndpointUtils';
 import RequestBodyUtils from '../utils/RequestBodyUtils';
 import RequestUtils from '../utils/RequestUtils';
+import ResponseUtils from '../utils/ResponseUtils';
 
 test.describe('Users', () => {
   
@@ -10,14 +11,11 @@ test.describe('Users', () => {
 
   test('GET Request - Get User Detail. @regression ', async ({ request }) => {
 
-    // Call API endpoint
+    // Make a request to the API endpoint
     const response = await RequestUtils.get(request, singleUserEndpoint);
     
-    // Extract the Response Body
-    const responseBody = JSON.parse(await response.text())
-
-    // Print the Response Data in console for debugging purposes
-    console.log(responseBody);
+    // Parse and Log Response Body    
+    const responseBody = await ResponseUtils.parseAndLog(response)
     
     // Assertions to validate the response
     expect(response.status()).toBe(200)
@@ -30,15 +28,12 @@ test.describe('Users', () => {
 
   test('POST Request - Create New User. @regression @sanity', async ({ request }) => {
 
-    // Call API endpoint
+    // Make a request to the API endpoint
     const response = await RequestUtils.post(request, userEndpoint, RequestBodyUtils.USER_CREATE);
 
-    // Extract the Response Body
-    const responseBody = JSON.parse(await response.text())
-
-    // Print the Response Data in console for debugging purposes
-    console.log(responseBody);
-        
+    // Parse and Log Response Body   
+    const responseBody = await ResponseUtils.parseAndLog(response)
+            
     // Assertions to validate the response
     expect(responseBody.id).toBe(1111)
     expect(responseBody.createdAt).toBeTruthy()
@@ -47,15 +42,12 @@ test.describe('Users', () => {
 
   test('PUT Request - Update User. @regression @sanity', async ({ request }) => {
 
-    // Call API endpoint
+    // Make a request to the API endpoint
     const response = await RequestUtils.put(request, singleUserEndpoint, RequestBodyUtils.USER_UPDATE);
     
-    // Extract the Response Body
-    const responseBody = JSON.parse(await response.text())
-
-    // Print the Response Data in console for debugging purposes
-    console.log(responseBody);
-    
+    // Parse and Log Response Body     
+    const responseBody = await ResponseUtils.parseAndLog(response)
+        
     // Assertions to validate the response
     expect(response.status()).toBe(200)
     expect(responseBody.name).toBe('test name - updated')
@@ -66,7 +58,7 @@ test.describe('Users', () => {
 
   test('DELETE Request - Delete User. @regression', async ({ request }) => {
  
-    // Call API endpoint
+    // Make a request to the API endpoint
     const response = await RequestUtils.delete(request, singleUserEndpoint);
 
     // Assertions to validate the response
