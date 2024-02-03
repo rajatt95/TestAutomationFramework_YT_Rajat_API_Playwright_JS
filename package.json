@@ -4,8 +4,13 @@
   "description": "This project is a Test Automation Framework built using Playwright and Javascript for automated testing of REST APIs.",
   "main": "index.js",
   "scripts": {
+    
     "playwright:tests": "npx playwright test",
-    "tests:show:reports-html": "npx playwright show-report"
+    "tests:show:reports-html": "npx playwright show-report",
+
+    "tests:Tag:SANITY": "npx playwright test --grep=@sanity",
+    "tests:Tag:REGRESSION": "npx playwright test --grep=@regression"
+
   },
   "keywords": [],
   "author": "Rajat Verma",

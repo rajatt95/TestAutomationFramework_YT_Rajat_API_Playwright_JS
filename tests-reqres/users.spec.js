@@ -1,9 +1,8 @@
 import { test, expect} from '@playwright/test'
 
-
 test.describe('Users', () => {
   
-  test('GET Request - Get User Detail', async ({ request }) => {
+  test('GET Request - Get User Detail. @regression ', async ({ request }) => {
 
     // Call API endpoint
     const response = await request.get(`users/2`)
@@ -23,7 +22,7 @@ test.describe('Users', () => {
 
   })
 
-  test('POST Request - Create New User', async ({ request }) => {
+  test('POST Request - Create New User. @regression @sanity', async ({ request }) => {
 
     // Call API endpoint
     const response = await request.post(`user`, {
@@ -45,7 +44,7 @@ test.describe('Users', () => {
     
   })
 
-  test('PUT Request - Update User', async ({ request }) => {
+  test('PUT Request - Update User. @regression @sanity', async ({ request }) => {
 
     // Call API endpoint
      const response = await request.put(`users/2`, {
@@ -70,7 +69,7 @@ test.describe('Users', () => {
   
   })
 
-  test('DELETE Request - Delete User', async ({ request }) => {
+  test('DELETE Request - Delete User. @regression', async ({ request }) => {
  
     // Call API endpoint
     const response = await request.delete(`users/2`)
@@ -79,7 +78,5 @@ test.describe('Users', () => {
     expect(response.status()).toBe(204)
     
   })
-
-
 
 })
