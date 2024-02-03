@@ -3,6 +3,9 @@
  */
 class EndpointUtils {
 
+    // Register
+    REGISTER = 'register';
+
     // Users
     SINGLE_USER = 'users/2';
     USER = 'user';
