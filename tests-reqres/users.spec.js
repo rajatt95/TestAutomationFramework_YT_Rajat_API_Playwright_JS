@@ -1,5 +1,6 @@
 import { test, expect} from '@playwright/test'
 import EndpointUtils from '../utils/EndpointUtils';
+import RequestBodyUtils from '../utils/RequestBodyUtils';
 
 test.describe('Users', () => {
   
@@ -31,9 +32,7 @@ test.describe('Users', () => {
     // Call API endpoint
     const response = await request.post(userEndpoint, {
       // Request Body
-      data: {
-        id: 1111,
-      }
+      data: RequestBodyUtils.USER_CREATE
     })
 
     // Extract the Response Body
@@ -53,10 +52,7 @@ test.describe('Users', () => {
     // Call API endpoint
      const response = await request.put(singleUserEndpoint, {
       // Request Body
-      data: {
-        name: 'test name - updated',
-        job: 'test job - updated',
-      },
+      data: RequestBodyUtils.USER_UPDATE
     })
     
     // Extract the Response Body
