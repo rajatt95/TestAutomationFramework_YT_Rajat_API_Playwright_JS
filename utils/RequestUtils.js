@@ -97,6 +97,17 @@ class RequestUtils {
       return this.makeRequest(request, 'DELETE', endpoint);
     }
     
+    /**
+     * Makes a PATCH request and returns the response.
+     * @param {Object} request - The request object used for making HTTP requests.
+     * @param {string} endpoint - The endpoint or URL for the request.
+     * @param {Object} requestBody - The body of the HTTP request.
+     * @returns {Response} - The HTTP response object.
+     */
+    patch(request, endpoint, requestBody) {
+      return this.makeRequest(request, 'PATCH', endpoint, requestBody);
+    }
+
   }
   
   export default new RequestUtils();
