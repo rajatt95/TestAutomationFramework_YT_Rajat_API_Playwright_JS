@@ -1,3 +1,6 @@
+/**
+ * Utility class for managing and providing endpoint URLs for various scenarios.
+ */
 class EndpointUtils {
 
     // Users

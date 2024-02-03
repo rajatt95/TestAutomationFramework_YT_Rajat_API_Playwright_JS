@@ -1,5 +1,14 @@
+/**
+ * Utility class for handling and logging HTTP responses.
+ */
 class ResponseUtils {
 
+    /**
+     * Parses the response body as JSON and logs it. If parsing fails, an error is logged and thrown.
+     * @param {Response} response - The HTTP response object.
+     * @returns {Object} - The parsed response body as a JSON object.
+     * @throws {Error} - If there's an error parsing the response body.
+     */
     async parseAndLog(response) {
       try {
         const responseBody = JSON.parse(await response.text());

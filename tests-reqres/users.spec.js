@@ -5,12 +5,20 @@ import RequestUtils from '../utils/RequestUtils';
 import ResponseUtils from '../utils/ResponseUtils';
 import VerificationUtils from '../utils/VerificationUtils';
 
+/**
+ * Test suite for API endpoints related to user management.
+ */
 test.describe('Users', () => {
   
+  // Define endpoints for users
   const singleUserEndpoint = EndpointUtils.SINGLE_USER;
   const userEndpoint = EndpointUtils.USER;
 
-  test('GET Request - Get User Detail. @regression ', async ({ request }) => {
+  /**
+   * Test to retrieve user details with a GET request.
+   * @tags {regression}
+   */
+  test('GET Request - Get User Details. @regression ', async ({ request }) => {
 
     // Make a request to the API endpoint
     const response = await RequestUtils.get(request, singleUserEndpoint);
@@ -27,6 +35,10 @@ test.describe('Users', () => {
 
   })
 
+  /**
+   * Test to create a new user with a POST request.
+   * @tags {regression, sanity}
+   */
   test('POST Request - Create New User. @regression @sanity', async ({ request }) => {
 
     // Make a request to the API endpoint
@@ -41,6 +53,10 @@ test.describe('Users', () => {
     
   })
 
+  /**
+   * Test to update a user with a PUT request.
+   * @tags {regression, sanity}
+   */
   test('PUT Request - Update User. @regression @sanity', async ({ request }) => {
 
     // Make a request to the API endpoint
@@ -57,6 +73,10 @@ test.describe('Users', () => {
   
   })
 
+  /**
+   * Test to delete a user with a DELETE request.
+   * @tags {regression}
+   */
   test('DELETE Request - Delete User. @regression', async ({ request }) => {
  
     // Make a request to the API endpoint

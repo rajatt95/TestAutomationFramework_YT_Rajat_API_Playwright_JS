@@ -1,5 +1,18 @@
+# Ignore Node.js dependencies
 node_modules/
+
+# Ignore test results
 /test-results/
+
+# Ignore Playwright report
 /playwright-report/
+
+# Ignore file
+.DS_Store
+
+# Ignore coverage reports
 /blob-report/
+
+# Ignore Playwright cache
 /playwright/.cache/
+
