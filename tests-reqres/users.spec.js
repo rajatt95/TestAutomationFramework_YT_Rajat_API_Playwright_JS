@@ -3,12 +3,10 @@ import { test, expect} from '@playwright/test'
 
 test.describe('Users', () => {
   
-  const baseUrl = 'https://reqres.in/api'
-
   test('GET Request - Get User Detail', async ({ request }) => {
 
     // Call API endpoint
-    const response = await request.get(`${baseUrl}/users/2`)
+    const response = await request.get(`users/2`)
     
     // Extract the Response Body
     const responseBody = JSON.parse(await response.text())
@@ -28,7 +26,7 @@ test.describe('Users', () => {
   test('POST Request - Create New User', async ({ request }) => {
 
     // Call API endpoint
-    const response = await request.post(`${baseUrl}/user`, {
+    const response = await request.post(`user`, {
       // Request Body
       data: {
         id: 1111,
@@ -50,7 +48,7 @@ test.describe('Users', () => {
   test('PUT Request - Update User', async ({ request }) => {
 
     // Call API endpoint
-     const response = await request.put(`${baseUrl}/users/2`, {
+     const response = await request.put(`users/2`, {
       // Request Body
       data: {
         name: 'test name - updated',
@@ -75,7 +73,7 @@ test.describe('Users', () => {
   test('DELETE Request - Delete User', async ({ request }) => {
  
     // Call API endpoint
-    const response = await request.delete(`${baseUrl}/users/2`)
+    const response = await request.delete(`users/2`)
  
     // Assertions to validate the response
     expect(response.status()).toBe(204)
