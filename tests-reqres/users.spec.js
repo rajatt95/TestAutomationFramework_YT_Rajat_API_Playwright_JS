@@ -1,6 +1,7 @@
 import { test, expect} from '@playwright/test'
 import EndpointUtils from '../utils/EndpointUtils';
 import RequestBodyUtils from '../utils/RequestBodyUtils';
+import RequestUtils from '../utils/RequestUtils';
 
 test.describe('Users', () => {
   
@@ -10,7 +11,7 @@ test.describe('Users', () => {
   test('GET Request - Get User Detail. @regression ', async ({ request }) => {
 
     // Call API endpoint
-    const response = await request.get(singleUserEndpoint)
+    const response = await RequestUtils.get(request, singleUserEndpoint);
     
     // Extract the Response Body
     const responseBody = JSON.parse(await response.text())
@@ -30,10 +31,7 @@ test.describe('Users', () => {
   test('POST Request - Create New User. @regression @sanity', async ({ request }) => {
 
     // Call API endpoint
-    const response = await request.post(userEndpoint, {
-      // Request Body
-      data: RequestBodyUtils.USER_CREATE
-    })
+    const response = await RequestUtils.post(request, userEndpoint, RequestBodyUtils.USER_CREATE);
 
     // Extract the Response Body
     const responseBody = JSON.parse(await response.text())
@@ -50,10 +48,7 @@ test.describe('Users', () => {
   test('PUT Request - Update User. @regression @sanity', async ({ request }) => {
 
     // Call API endpoint
-     const response = await request.put(singleUserEndpoint, {
-      // Request Body
-      data: RequestBodyUtils.USER_UPDATE
-    })
+    const response = await RequestUtils.put(request, singleUserEndpoint, RequestBodyUtils.USER_UPDATE);
     
     // Extract the Response Body
     const responseBody = JSON.parse(await response.text())
@@ -72,8 +67,8 @@ test.describe('Users', () => {
   test('DELETE Request - Delete User. @regression', async ({ request }) => {
  
     // Call API endpoint
-    const response = await request.delete(singleUserEndpoint)
- 
+    const response = await RequestUtils.delete(request, singleUserEndpoint);
+
     // Assertions to validate the response
     expect(response.status()).toBe(204)
     
