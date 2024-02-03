@@ -1,0 +1,16 @@
+{
+  "name": "testautomationframework_yt_rajat_api_playwright_js",
+  "version": "1.0.0",
+  "description": "This project is a Test Automation Framework built using Playwright and Javascript for automated testing of REST APIs.",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "keywords": [],
+  "author": "Rajat Verma",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.16"
+  }
+}
