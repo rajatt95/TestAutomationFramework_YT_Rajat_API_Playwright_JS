@@ -1,11 +1,15 @@
 import { test, expect} from '@playwright/test'
+import EndpointUtils from '../utils/EndpointUtils';
 
 test.describe('Users', () => {
   
+  const singleUserEndpoint = EndpointUtils.SINGLE_USER;
+  const userEndpoint = EndpointUtils.USER;
+
   test('GET Request - Get User Detail. @regression ', async ({ request }) => {
 
     // Call API endpoint
-    const response = await request.get(`users/2`)
+    const response = await request.get(singleUserEndpoint)
     
     // Extract the Response Body
     const responseBody = JSON.parse(await response.text())
@@ -25,7 +29,7 @@ test.describe('Users', () => {
   test('POST Request - Create New User. @regression @sanity', async ({ request }) => {
 
     // Call API endpoint
-    const response = await request.post(`user`, {
+    const response = await request.post(userEndpoint, {
       // Request Body
       data: {
         id: 1111,
@@ -47,7 +51,7 @@ test.describe('Users', () => {
   test('PUT Request - Update User. @regression @sanity', async ({ request }) => {
 
     // Call API endpoint
-     const response = await request.put(`users/2`, {
+     const response = await request.put(singleUserEndpoint, {
       // Request Body
       data: {
         name: 'test name - updated',
@@ -72,7 +76,7 @@ test.describe('Users', () => {
   test('DELETE Request - Delete User. @regression', async ({ request }) => {
  
     // Call API endpoint
-    const response = await request.delete(`users/2`)
+    const response = await request.delete(singleUserEndpoint)
  
     // Assertions to validate the response
     expect(response.status()).toBe(204)
