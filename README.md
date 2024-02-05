@@ -88,10 +88,18 @@ The tests follow a modular and maintainable structure:
 |          |-- api_tests.yml
 |          |-- 02_api_tests_select_env.yml
 |-- test-data
+|     |-- login
+|          |-- login-successful.json.json
+|          |-- login-unsuccessful.json.json
+|     |-- register
+|          |-- register-successful.json.json
+|          |-- register-unsuccessful.json.json
 |     |-- users
 |          |-- user_create.json
 |          |-- user_update.json
 |-- tests-reqres
+|     |-- login.spec.js
+|     |-- register.spec.js
 |     |-- users.spec.js
 |-- utils
 |     |-- EndpointUtils.js
