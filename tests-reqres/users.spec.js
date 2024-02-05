@@ -93,7 +93,7 @@ test.describe('Users', () => {
    * Test to verify the response when attempting to get a single user that is not found.
    * @tags {regression}
    */
-  test('GET Request - SINGLE USER NOT FOUND. @regression ', async ({ request }) => {
+  test('GET Request - SINGLE USER NOT FOUND. @regression', async ({ request }) => {
 
     // Make a request to the API endpoint
     const response = await RequestUtils.get(request, singleUserNotFoundEndpoint);
@@ -107,7 +107,7 @@ test.describe('Users', () => {
    * Test to verify the response when listing users.
    * @tags {regression}
    */
-  test('GET Request - LIST USERS. @regression ', async ({ request }) => {
+  test('GET Request - LIST USERS. @regression', async ({ request }) => {
 
     // Make a request to the API endpoint
     const response = await RequestUtils.get(request, listUsersEndpoint);
