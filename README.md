@@ -85,7 +85,7 @@ The tests follow a modular and maintainable structure:
 ```
 |-- .github
 |     |-- workflows
-|          |-- api_tests.yml
+|          |-- 01_api_tests.yml
 |          |-- 02_api_tests_select_env.yml
 |-- test-data
 |     |-- login
@@ -96,7 +96,8 @@ The tests follow a modular and maintainable structure:
 |          |-- register-unsuccessful.json.json
 |     |-- users
 |          |-- user_create.json
-|          |-- user_update.json
+|          |-- user_update_patch.json
+|          |-- user_update_put.json
 |-- tests-reqres
 |     |-- login.spec.js
 |     |-- register.spec.js
@@ -128,7 +129,7 @@ The tests follow a modular and maintainable structure:
 
 This project is configured for CI using Github Actions. Check the configurations in `.github/workflows/*.yml`.
 
-- `api_tests.yml`: This workflow executes tests in pre-defined environment PROD.
+- `01_api_tests.yml`: This workflow executes tests in pre-defined environment PROD.
 - `02_api_tests_select_env.yml`: This workflow will first ask User to select the environment (DEV / Pre-PROD / PROD) for tests execution.
 
 ## 📊 Reporting
