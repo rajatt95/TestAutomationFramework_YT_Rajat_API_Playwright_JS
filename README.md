@@ -89,11 +89,11 @@ The tests follow a modular and maintainable structure:
 |          |-- 02_api_tests_select_env.yml
 |-- test-data
 |     |-- login
-|          |-- login-successful.json.json
-|          |-- login-unsuccessful.json.json
+|          |-- login-successful.json
+|          |-- login-unsuccessful.json
 |     |-- register
-|          |-- register-successful.json.json
-|          |-- register-unsuccessful.json.json
+|          |-- register-successful.json
+|          |-- register-unsuccessful.json
 |     |-- users
 |          |-- user_create.json
 |          |-- user_update_patch.json
