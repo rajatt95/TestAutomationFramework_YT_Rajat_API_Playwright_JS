@@ -1,3 +1,5 @@
+import TokenUtils from './TokenUtils';
+
 /**
  * Utility class for making HTTP requests and logging request and response details.
  */
@@ -49,8 +51,15 @@ class RequestUtils {
      * @returns {Response} - The HTTP response object.
      */
     async makeRequest(request, method, endpoint, requestBody) {
+      const headers = {
+        'x-api-key': TokenUtils.getToken(),  // Add the x-api-key header
+      };
+      
       this.logRequestDetails(method, endpoint, requestBody);
-      const response = await request[method.toLowerCase()](endpoint, { data: requestBody });
+      const response = await request[method.toLowerCase()](endpoint, { 
+        data: requestBody,
+        headers,  // Include headers in the request options
+      });
       this.logResponseDetails(response);
       return response;
     }
