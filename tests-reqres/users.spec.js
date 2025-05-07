@@ -4,6 +4,7 @@ import RequestBodyUtils from '../utils/RequestBodyUtils';
 import RequestUtils from '../utils/RequestUtils';
 import ResponseUtils from '../utils/ResponseUtils';
 import VerificationUtils from '../utils/VerificationUtils';
+import SchemaUtils from '../utils/SchemaUtils';
 
 /**
  * Test suite for API endpoints related to user management.
@@ -29,11 +30,11 @@ test.describe('Users', () => {
     const responseBody = await ResponseUtils.parseAndLog(response)
     
     // Assertions to validate the response
-    VerificationUtils.assertResponseStatusCode(response, 200)  
+    VerificationUtils.assertResponseStatusCode(response, 200);
     VerificationUtils.assertResponseBodyKeyValue(responseBody.data, 'id', 2);
     VerificationUtils.assertResponseBodyKeyValue(responseBody.data, 'first_name', 'Janet');
     VerificationUtils.assertResponseBodyKeyValue(responseBody.data, 'last_name', 'Weaver');
-    VerificationUtils.assertResponseBodyKeyPresent(responseBody.data, 'email')
+    VerificationUtils.assertResponseBodyKeyPresent(responseBody.data, 'email');
 
   })
 
@@ -52,6 +53,8 @@ test.describe('Users', () => {
     // Assertions to validate the response
     VerificationUtils.assertResponseBodyKeyValue(responseBody, 'id', 1111);
     VerificationUtils.assertResponseBodyKeyPresent(responseBody, 'createdAt');
+
+    VerificationUtils.assertResponseSchema(responseBody, SchemaUtils.USER_CREATE);
     
   })
 
@@ -73,6 +76,8 @@ test.describe('Users', () => {
     VerificationUtils.assertResponseBodyKeyValue(responseBody, 'job', 'test job - updated');
     VerificationUtils.assertResponseBodyKeyPresent(responseBody, 'updatedAt');
   
+    VerificationUtils.assertResponseSchema(responseBody, SchemaUtils.USER_UPDATE_PUT);
+
   })
 
   /**
@@ -148,10 +153,9 @@ test.describe('Users', () => {
     VerificationUtils.assertResponseStatusCode(response, 200);
     VerificationUtils.assertResponseBodyKeyValue(responseBody, 'name', 'test name - updated using patch');
     VerificationUtils.assertResponseBodyKeyPresent(responseBody, 'updatedAt');
+
+    VerificationUtils.assertResponseSchema(responseBody, SchemaUtils.USER_UPDATE_PATCH);
   
   })
-
-
-  
 
 })

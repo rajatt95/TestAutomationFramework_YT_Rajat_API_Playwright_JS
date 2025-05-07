@@ -4,6 +4,7 @@ import RequestBodyUtils from '../utils/RequestBodyUtils';
 import RequestUtils from '../utils/RequestUtils';
 import ResponseUtils from '../utils/ResponseUtils';
 import VerificationUtils from '../utils/VerificationUtils';
+import SchemaUtils from '../utils/SchemaUtils';
 
 /**
  * Test suite for API endpoints related to user login.
@@ -28,7 +29,8 @@ test.describe('Login', () => {
     // Assertions to validate the response
     VerificationUtils.assertResponseStatusCode(response, 200)
     VerificationUtils.assertResponseBodyKeyPresent(responseBody, "token")
-    
+    VerificationUtils.assertResponseSchema(responseBody, SchemaUtils.LOGIN_SUCCESSFUL)
+        
   })
 
   /**
@@ -47,6 +49,8 @@ test.describe('Login', () => {
     VerificationUtils.assertResponseStatusCode(response, 400)
     VerificationUtils.assertResponseBodyKeyValue(responseBody, "error", "Missing password")
     
+    VerificationUtils.assertResponseSchema(responseBody, SchemaUtils.LOGIN_UNSUCCESSFUL)  
+
   })
 
 })
