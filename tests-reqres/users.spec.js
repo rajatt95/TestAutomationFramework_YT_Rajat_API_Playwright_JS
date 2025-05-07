@@ -126,8 +126,9 @@ test.describe('Users', () => {
     VerificationUtils.assertResponseBodyKeyPresent(responseBody.data[0], 'last_name');
     VerificationUtils.assertResponseBodyKeyPresent(responseBody.data[0], 'avatar');
     
-    VerificationUtils.assertResponseBodyKeyValue(responseBody.support, 'text', 'To keep ReqRes free, contributions towards server costs are appreciated!');
-    
+    // VerificationUtils.assertResponseBodyKeyValue(responseBody.support, 'text', 'To keep ReqRes free, contributions towards server costs are appreciated!');
+    VerificationUtils.assertResponseBodyKeyValue(responseBody.support, 'text', 'Tired of writing endless social media content? Let Content Caddy generate it for you.');
+        
   })
 
 
